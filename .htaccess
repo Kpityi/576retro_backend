@@ -1,0 +1,15 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Redirect /games to /games.php
+RewriteRule ^games/?$ games.php [L]
+
+# Redirect /comment to /comment.php
+RewriteRule ^comment/?$ comment.php [L]
+
+# Redirect /game/:game-id to /game.php with the game-id as a parameter
+RewriteRule ^game/([0-9a-zA-Z_-]+)/?$ game.php?id=$1 [L,QSA]
+
+# Redirect /game/:game-id/comment to /comment.php with the game-id as a parameter
+RewriteRule ^game/([0-9a-zA-Z_-]+)/comment/?$ comment.php?game_id=$1 [L,QSA]
+
